@@ -1,15 +1,12 @@
 <template>
   <div>
-    About
+    login
   </div>
 </template>
 
 <script>
 export default {
-  name: "home",
-  //   components: {
-  //     HelloWorld
-  //   },
+  name: "login",
   data: () => ({}),
   mounted() {},
   methods: {},

@@ -1,21 +1,14 @@
 import Vue from "vue";
+import VueRouter from "vue-router";
+import App from "./App.vue";
 import { routes } from "./routes";
-
+Vue.use(VueRouter);
 Vue.config.productionTip = false;
+const router = new VueRouter({
+  routes // (缩写) 相当于 routes: routes
+});
 
 new Vue({
-  data: {
-    currentRoute: window.location.pathname
-  },
-  mounted() {
-    console.log(window.location.pathname, 111);
-  },
-  computed: {
-    ViewComponent() {
-      return routes[this.currentRoute];
-    }
-  },
-  render(h) {
-    return h(this.ViewComponent);
-  }
+  router,
+  render: h => h(App)
 }).$mount("#app");
