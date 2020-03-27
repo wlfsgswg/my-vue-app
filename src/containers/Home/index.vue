@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <router-link to="/survey">概况</router-link>
     </div>
     <div>
@@ -20,14 +20,19 @@
     </div>
     <div>
       <router-link to="/setting">设置</router-link>
-    </div>
+    </div> -->
+    <LeftMenu />
     <router-view />
   </div>
 </template>
 
 <script>
+import { LeftMenu } from "./../../components";
 export default {
   name: "home",
+  components: {
+    LeftMenu
+  },
   data: () => ({}),
   mounted() {},
   methods: {},
