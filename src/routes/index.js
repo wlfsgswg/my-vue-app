@@ -10,13 +10,23 @@ import {
   Asset,
   Setting
 } from "./../containers/Home/index.js";
+// order子组件
+import {
+  AllOrder,
+  CheckOrder,
+  RefundOrder
+} from "./../containers/Home/Order/index";
 const routes = [
   {
     path: "/",
     component: Home,
     children: [
       {
-        path: "" || "survey",
+        path: "",
+        component: Survey
+      },
+      {
+        path: "survey",
         component: Survey
       },
       {
@@ -25,7 +35,29 @@ const routes = [
       },
       {
         path: "order",
-        component: Order
+        component: Order,
+        children: [
+          {
+            path: "",
+            component: AllOrder
+          },
+          {
+            path: "all",
+            component: AllOrder
+          },
+          {
+            path: "refund",
+            component: RefundOrder
+          },
+          {
+            path: "check",
+            component: CheckOrder
+          },
+          {
+            path: "ceshi",
+            component: NotFound
+          }
+        ]
       },
       {
         path: "custom",
@@ -50,7 +82,7 @@ const routes = [
     component: Login
   },
   {
-    path: "*",
+    path: "*11",
     component: NotFound
   }
 ];

@@ -14,7 +14,7 @@
       @click="handleChangeItem"
     >
       <a-menu-item v-for="item in listMenu" :key="item.key">
-        <router-link :to="item.key">
+        <router-link :to="`/${item.key}`">
           <span class="nav-text">{{ item.title }}</span>
         </router-link>
       </a-menu-item>
