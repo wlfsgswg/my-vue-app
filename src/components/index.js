@@ -1,3 +1,3 @@
 import LeftMenu from "./LeftMenu";
-
-export { LeftMenu };
+import SecondMenu from "./SecondMenu";
+export { LeftMenu, SecondMenu };

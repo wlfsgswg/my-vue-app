@@ -16,11 +16,7 @@ const routes = [
     component: Home,
     children: [
       {
-        path: "",
-        component: Survey
-      },
-      {
-        path: "survey",
+        path: "" || "survey",
         component: Survey
       },
       {
