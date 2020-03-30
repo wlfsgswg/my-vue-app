@@ -1,12 +1,19 @@
 <template>
   <div>
-    <div>asset</div>
+    <SecondMenu :routes="asset" />
   </div>
 </template>
 
 <script>
+import { asset } from "./../../../routes/pageroutes";
+import { SecondMenu } from "./../../../components";
 export default {
-  data: () => ({}),
+  data: () => ({
+    asset
+  }),
+  components: {
+    SecondMenu
+  },
   mounted() {},
   methods: {},
   watch: {},
