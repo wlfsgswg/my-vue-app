@@ -1,89 +1,71 @@
-import Home from "./../containers/Home/index.vue";
-import NotFound from "./../containers/NotFound";
-import Login from "./../containers/Login";
-import {
-  Survey,
-  Goods,
-  Order,
-  Custom,
-  Market,
-  Asset,
-  Setting
-} from "./../containers/Home/index.js";
-// order子组件
-import {
-  AllOrder,
-  CheckOrder,
-  RefundOrder
-} from "./../containers/Home/Order/index";
 const routes = [
   {
     path: "/",
-    component: Home,
+    component: () => import("@/containers/Home/index.vue"),
     children: [
       {
         path: "",
-        component: Survey
+        component: () => import("@/containers/Home/Survey/index.vue")
       },
       {
         path: "survey",
-        component: Survey
+        component: () => import("@/containers/Home/Survey/index.vue")
       },
       {
         path: "goods",
-        component: Goods
+        component: () => import("@/containers/Home/Goods/index.vue")
       },
       {
         path: "order",
-        component: Order,
+        component: () => import("@/containers/Home/Order/index.vue"),
         children: [
           {
             path: "",
-            component: AllOrder
+            component: () => import("@/containers/Home/Order/All/index.vue")
           },
           {
             path: "all",
-            component: AllOrder
+            component: () => import("@/containers/Home/Order/All/index.vue")
           },
           {
             path: "refund",
-            component: RefundOrder
+            component: () => import("@/containers/Home/Order/Refund/index.vue")
           },
           {
             path: "check",
-            component: CheckOrder
+            component: () => import("@/containers/Home/Order/Check/index.vue")
           },
           {
             path: "ceshi",
-            component: NotFound
+            component: () => import("@/containers/NotFound/index.vue")
           }
         ]
       },
       {
         path: "custom",
-        component: Custom
+        component: () => import("@/containers/Home/Custom/index.vue")
       },
       {
         path: "market",
-        component: Market
+        component: () => import("@/containers/Home/Market/index.vue")
       },
       {
         path: "asset",
-        component: Asset
+        component: () => import("@/containers/Home/Asset/index.vue")
       },
       {
         path: "setting",
-        component: Setting
+        component: () => import("@/containers/Home/Setting/index.vue")
       }
     ]
   },
   {
     path: "/login",
-    component: Login
+    component: () => import("@/containers/Login/index.vue")
   },
   {
-    path: "*11",
-    component: NotFound
+    path: "*",
+    component: () => import("@/containers/NotFound/index.vue")
   }
 ];
 const defaultRoutes = routes[1].children;
