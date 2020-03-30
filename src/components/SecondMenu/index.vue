@@ -42,7 +42,7 @@
         :style="!this.openKeys.length && 'width:100%'"
       >
         <div class="second-content-header clearfix">
-          <div class="l-left">哈哈哈哈哈</div>
+          <div class="l-left">{{focusKey[0]}}</div>
           <div class="r-right clearfix">
             <div class="l-left p-r-10">
               <div class="count-img"></div>
