@@ -13,6 +13,10 @@ const order = {
       ]
     },
     {
+      name: "订单测试",
+      key: "order/ceshi"
+    },
+    {
       name: "订单处理",
       item: [
         {

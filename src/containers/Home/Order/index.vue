@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div>order</div>
-    <div>
-      <SecondMenu :routes=order />
-    </div>
+    <SecondMenu :routes="order" />
   </div>
 </template>
 
