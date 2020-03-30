@@ -10,6 +10,10 @@
 
             .ant-menu {
                 overflow: hidden;
+
+                .ant-menu-item {
+                    padding: 0 24px !important;
+                }
             }
         }
 
@@ -26,24 +30,27 @@
 
     // 右边内容部分
     .second-content {
-        width: calc(100% - @secondWidth);
-        height: 100vh;
+        width           : calc(100% - @secondWidth);
+        height          : 100vh;
         background-color: #f1f2f5;
-        &-header{
-            width: 100%;
-            line-height: 50px;
-            padding: 4px 20px;
+
+        &-header {
+            width           : 100%;
+            line-height     : 50px;
+            padding         : 4px 20px;
             background-color: #fff;
-            .count-img{
-                margin-top: 5px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                overflow: hidden;
+
+            .count-img {
+                margin-top      : 5px;
+                width           : 40px;
+                height          : 40px;
+                border-radius   : 50%;
+                overflow        : hidden;
                 background-color: #666;
             }
         }
-        &-container{
+
+        &-container {
             width: 100%;
         }
     }

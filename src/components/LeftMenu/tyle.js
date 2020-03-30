@@ -1,7 +1,7 @@
 const listMenu = [
   {
     key: "survey",
-    title: "概况"
+    title: "概览"
   },
   {
     key: "goods",

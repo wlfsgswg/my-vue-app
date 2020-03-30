@@ -5,15 +5,45 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import("@/containers/Home/Survey/index.vue")
+        component: () => import("@/containers/Home/Survey/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Survey/Com/index.vue")
+          }
+        ]
       },
       {
         path: "survey",
-        component: () => import("@/containers/Home/Survey/index.vue")
+        component: () => import("@/containers/Home/Survey/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Survey/Com/index.vue")
+          }
+        ]
       },
       {
         path: "goods",
-        component: () => import("@/containers/Home/Goods/index.vue")
+        component: () => import("@/containers/Home/Goods/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Goods/Control/index.vue")
+          },
+          {
+            path: "control",
+            component: () => import("@/containers/Home/Goods/Control/index.vue")
+          },
+          {
+            path: "groups",
+            component: () => import("@/containers/Home/Goods/Groups/index.vue")
+          },
+          {
+            path: "tags",
+            component: () => import("@/containers/Home/Goods/Tags/index.vue")
+          }
+        ]
       },
       {
         path: "order",

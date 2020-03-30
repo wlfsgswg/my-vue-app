@@ -42,7 +42,8 @@
         :style="!this.openKeys.length && 'width:100%'"
       >
         <div class="second-content-header clearfix">
-          <div class="l-left">{{focusKey[0]}}</div>
+          <div class="l-left" v-if="this.routes.item">{{ focusKey[0] }}</div>
+          <div class="l-left" v-else>{{ this.routes.name }}</div>
           <div class="r-right clearfix">
             <div class="l-left p-r-10">
               <div class="count-img"></div>
@@ -67,7 +68,7 @@ export default {
     routes: Object
   },
   data: () => ({
-    openKeys:[], //收缩栏展开项
+    openKeys: [], //收缩栏展开项
     focusKey: []
   }),
   mounted() {

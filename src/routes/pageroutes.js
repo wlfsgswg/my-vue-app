@@ -1,8 +1,34 @@
 // 该页面为所有二级路由嵌套，所有路由嵌套请按照此对象来写
-// 订单管理
+// 概况
+const survey = {
+  name: "概览"
+};
+// 商品
+const goods = {
+  name: "商品管理",
+  item: [
+    {
+      name: "商品中心",
+      item: [
+        {
+          name: "商品管理",
+          key: "goods/control"
+        },
+        {
+          name: "商品分组",
+          key: "goods/groups"
+        },
+        {
+          name: "商品标签",
+          key: "goods/tags"
+        }
+      ]
+    }
+  ]
+};
+// 订单
 const order = {
   name: "订单管理",
-  openKeys: ["订单查询", "订单处理"],
   item: [
     {
       name: "订单查询",
@@ -33,4 +59,4 @@ const order = {
   ]
 };
 
-export { order };
+export { survey, goods, order };
