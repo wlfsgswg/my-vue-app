@@ -1,33 +1,19 @@
 <template>
-  <div>
-    <!-- <div>
-      <router-link to="/survey">概况</router-link>
+  <div class="qf-home clearfix">
+    <div class="l-left">
+      <LeftMenu />
     </div>
-    <div>
-      <router-link to="/goods">商品</router-link>
+    <div class="list-right">
+      <div class="content">
+        <router-view />
+      </div>
     </div>
-    <div>
-      <router-link to="/order">订单</router-link>
-    </div>
-    <div>
-      <router-link to="/custom">客户</router-link>
-    </div>
-    <div>
-      <router-link to="/market">促销</router-link>
-    </div>
-    <div>
-      <router-link to="/asset">资产</router-link>
-    </div>
-    <div>
-      <router-link to="/setting">设置</router-link>
-    </div> -->
-    <LeftMenu />
-    <router-view />
   </div>
 </template>
 
 <script>
 import { LeftMenu } from "./../../components";
+import './index.less'
 export default {
   name: "home",
   components: {

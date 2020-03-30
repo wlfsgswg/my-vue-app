@@ -1,55 +1,47 @@
 <template>
-  <a-layout id="components-layout-demo-responsive">
-    <a-layout-sider
-      breakpoint="lg"
-      collapsedWidth="0"
-      @collapse="onCollapse"
-      @breakpoint="onBreakpoint"
+  <div class="qf-components-leftmenu">
+    <div class="img">
+      <img
+        src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2748066284,1487867772&fm=26&gp=0.jpg"
+        alt=""
+      />
+    </div>
+    <a-menu
+      theme="dark"
+      mode="inline"
+      :selectedKeys="[focus]"
+      class="menu"
+      @click="handleChangeItem"
     >
-      <div class="logo" />
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['4']">
-        <a-menu-item key="1">
-          <a-icon type="user" />
-          <span class="nav-text">nav 1</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <a-icon type="video-camera" />
-          <span class="nav-text">nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <a-icon type="upload" />
-          <span class="nav-text">nav 3</span>
-        </a-menu-item>
-        <a-menu-item key="4">
-          <a-icon type="user" />
-          <span class="nav-text">nav 4</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-  </a-layout>
+      <a-menu-item v-for="item in listMenu" :key="item.key">
+        <router-link :to="item.key">
+          <span class="nav-text">{{ item.title }}</span>
+        </router-link>
+      </a-menu-item>
+    </a-menu>
+  </div>
 </template>
 
 <script>
 import { listMenu } from "./tyle";
+import { routeMatching } from "./../../utils";
+import "./index.less";
 export default {
   name: "left-menu",
   data: () => ({
-    listMenu: [...listMenu]
+    listMenu: [...listMenu],
+    focus: "survey"
   }),
+  mounted() {
+    const path = routeMatching(this.$route.path);
+    listMenu.map(it => {
+      if (`/${it.key}` === path) this.focus = it.key;
+    });
+  },
   methods: {
-    onCollapse(collapsed, type) {
-      console.log(collapsed, type);
-    },
-    onBreakpoint(broken) {
-      console.log(broken);
+    handleChangeItem(e) {
+      this.focus = e.key
     }
   }
 };
 </script>
-<style>
-#components-layout-demo-responsive .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-}
-</style>
