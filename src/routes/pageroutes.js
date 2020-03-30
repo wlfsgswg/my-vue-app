@@ -2,6 +2,7 @@
 // 订单管理
 const order = {
   name: "订单管理",
+  openKeys: ["订单查询", "订单处理"],
   item: [
     {
       name: "订单查询",

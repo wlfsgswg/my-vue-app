@@ -67,7 +67,7 @@ export default {
     routes: Object
   },
   data: () => ({
-    openKeys: [], //收缩栏展开项
+    openKeys:[], //收缩栏展开项
     focusKey: []
   }),
   mounted() {
