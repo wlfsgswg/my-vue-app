@@ -97,6 +97,34 @@ export default {
         if (!this.focusKey.length) this.focusKey = [firstRoute];
       });
     this.openKeys = arr;
+
+    // 处理手动操作history
+    this.$router.beforeEach((to, from, next) => {
+      const path = to.path;
+      console.log(path)
+      this.routes.item &&
+        this.routes.item.map(it => {
+          //比对路由和哪个子集匹配，如果匹配设置选中focusKey
+          // 无论是一级路由还是二级路由，匹配不上时选择第一个路由进行容错
+          this.focusKey = [];
+          const firstRoute =
+            this.routes.item && this.routes.item[0].key
+              ? this.routes.item[0].name
+              : this.routes.item[0].item[0].name;
+          // 只是一级路由的情况
+          if (!it.item && path === `/${it.key}`) {
+            this.focusKey = [it.name];
+          }
+          // 二级路由的情况
+          if (it.item && it.item.length) {
+            it.item.map(items => {
+              if (path === `/${items.key}`) this.focusKey = [items.name];
+            });
+          }
+          if (!this.focusKey.length) this.focusKey = [firstRoute];
+        });
+      next();
+    });
   },
   methods: {
     onOpenChange(e) {

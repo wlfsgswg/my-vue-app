@@ -13,7 +13,6 @@ Vue.config.productionTip = false;
 const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
 });
-console.log(router);
 // 路由守卫
 let routerArr = [];
 router.beforeEach((to, from, next) => {

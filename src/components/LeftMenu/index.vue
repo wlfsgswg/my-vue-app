@@ -37,10 +37,18 @@ export default {
     listMenu.map(it => {
       if (`/${it.key}` === path) this.focus = it.key;
     });
+    this.$router.beforeEach((to, from, next) => {
+      const path = routeMatching(to.path);
+      listMenu.map(it => {
+        if (`/${it.key}` === path) this.focus = it.key;
+      });
+      console.log(this.focus);
+      next();
+    });
   },
   methods: {
     handleChangeItem(e) {
-      this.focus = e.key
+      this.focus = e.key;
     }
   }
 };
