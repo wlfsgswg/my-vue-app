@@ -39,7 +39,7 @@
       </div>
       <div
         class="second-content l-left"
-        :style="!this.openKeys.length && 'width:100%'"
+        :style="!this.routes.item && 'width:100%'"
       >
         <div class="second-content-header clearfix">
           <div class="l-left" v-if="this.routes.item">{{ focusKey[0] }}</div>
