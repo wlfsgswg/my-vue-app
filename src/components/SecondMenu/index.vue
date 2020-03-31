@@ -78,49 +78,14 @@ export default {
       this.routes.item.map(it => {
         //把所有带子集的menu展开
         if (it.item) arr.push(it.name);
-        //比对路由和哪个子集匹配，如果匹配设置选中focusKey
-
-        // 只是一级路由的情况
-        if (!it.item && path === `/${it.key}`) this.focusKey = [it.name];
-        // 二级路由的情况
-        if (it.item && it.item.length) {
-          it.item.map(items => {
-            if (path === `/${items.key}`) this.focusKey = [items.name];
-          });
-        }
-        // 无论是一级路由还是二级路由，匹配不上时选择第一个路由进行容错
-        this.routes.item && this.routes.item[0].key;
-        const firstRoute =
-          this.routes.item && this.routes.item[0].key
-            ? this.routes.item[0].name
-            : this.routes.item[0].item[0].name;
-        if (!this.focusKey.length) this.focusKey = [firstRoute];
       });
     this.openKeys = arr;
+    this.focusKey = this.handleMatchRouter(path);
 
     // 处理手动操作history
     this.$router.beforeEach((to, from, next) => {
-      const path = to.path;
-      const routerArr = [];
-      this.routes.item &&
-        this.routes.item.map(it => {
-          if (it.item) {
-            it.item.map(obj => routerArr.push(obj));
-          } else {
-            routerArr.push(it);
-          }
-        });
-
-      this.focusKey = [];
-      // 容错
-      const firstRoute =
-        this.routes.item && this.routes.item[0].key
-          ? this.routes.item[0].name
-          : this.routes.item[0].item[0].name;
-      routerArr.map(it => {
-        if (path === `/${it.key}`) this.focusKey = [it.name];
-      });
-      if (!this.focusKey.length) this.focusKey = [firstRoute];
+      const obj = to.path;
+      this.focusKey = this.handleMatchRouter(obj);
       next();
     });
   },
@@ -130,6 +95,31 @@ export default {
     },
     handleChangeItem(e) {
       this.focusKey = [e.key];
+    },
+    // 此方法匹配路由
+    handleMatchRouter(path) {
+      const routerArr = [];
+      let focusKey = [];
+      this.routes.item &&
+        this.routes.item.map(it => {
+          if (it.item) {
+            it.item.map(obj => routerArr.push(obj));
+          } else {
+            routerArr.push(it);
+          }
+        });
+
+      // 容错
+      const firstRoute = this.routes.item
+        ? this.routes.item[0].key
+          ? this.routes.item[0].name
+          : this.routes.item[0].item[0].name
+        : "";
+      routerArr.map(it => {
+        if (path === `/${it.key}`) focusKey = [it.name];
+      });
+      if (!focusKey.length) focusKey = [firstRoute];
+      return focusKey;
     }
   }
 };

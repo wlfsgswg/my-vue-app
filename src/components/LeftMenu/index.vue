@@ -42,7 +42,6 @@ export default {
       listMenu.map(it => {
         if (`/${it.key}` === path) this.focus = it.key;
       });
-      console.log(this.focus);
       next();
     });
   },
