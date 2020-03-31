@@ -1,6 +1,6 @@
 <template>
   <div>
-    goods/control
+    {{ num }}
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
   mounted() {},
   methods: {},
   watch: {},
-  computed: {}
+  computed: {
+    num() {
+      return this.$store.state.count;
+    }
+  }
 };
 </script>

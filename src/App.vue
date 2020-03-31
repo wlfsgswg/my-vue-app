@@ -8,7 +8,7 @@
 export default {
   name: "app",
   mounted(){
-      // console.log(this)
+      console.log(this)
   }
 };
 </script>
