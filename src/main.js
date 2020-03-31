@@ -8,11 +8,18 @@ import "./less/common.less";
 import "ant-design-vue/dist/antd.css";
 import Antd from "ant-design-vue";
 Vue.use(Antd);
-
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
+});
+console.log(router);
+// 路由守卫
+let routerArr = [];
+router.beforeEach((to, from, next) => {
+  routerArr.push(to.path);
+  // console.log(routerArr);
+  next();
 });
 
 new Vue({
