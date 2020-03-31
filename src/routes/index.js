@@ -73,19 +73,104 @@ const routes = [
       },
       {
         path: "custom",
-        component: () => import("@/containers/Home/Custom/index.vue")
+        component: () => import("@/containers/Home/Custom/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Custom/Query/index.vue")
+          },
+          {
+            path: "query",
+            component: () => import("@/containers/Home/Custom/Query/index.vue")
+          },
+          {
+            path: "tags",
+            component: () => import("@/containers/Home/Custom/Tags/index.vue")
+          }
+        ]
       },
       {
         path: "market",
-        component: () => import("@/containers/Home/Market/index.vue")
+        component: () => import("@/containers/Home/Market/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Market/Shop/index.vue")
+          },
+          {
+            path: "shop",
+            component: () => import("@/containers/Home/Market/Shop/index.vue")
+          },
+          {
+            path: "coupon",
+            component: () => import("@/containers/Home/Market/Coupon/index.vue")
+          },
+          {
+            path: "exam",
+            component: () => import("@/containers/Home/Market/Exam/index.vue")
+          }
+        ]
       },
       {
         path: "asset",
-        component: () => import("@/containers/Home/Asset/index.vue")
+        component: () => import("@/containers/Home/Asset/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/containers/Home/Asset/Survey/index.vue")
+          },
+          {
+            path: "survey",
+            component: () => import("@/containers/Home/Asset/Survey/index.vue")
+          },
+          {
+            path: "balance",
+            component: () => import("@/containers/Home/Asset/Balance/index.vue")
+          },
+          {
+            path: "reco",
+            component: () => import("@/containers/Home/Asset/Reco/index.vue")
+          }
+        ]
       },
       {
         path: "setting",
-        component: () => import("@/containers/Home/Setting/index.vue")
+        component: () => import("@/containers/Home/Setting/index.vue"),
+        children: [
+          {
+            path: "",
+            component: () =>
+              import("@/containers/Home/Setting/Message/index.vue")
+          },
+          {
+            path: "message",
+            component: () =>
+              import("@/containers/Home/Setting/Message/index.vue")
+          },
+          {
+            path: "currency",
+            component: () =>
+              import("@/containers/Home/Setting/Currency/index.vue")
+          },
+          {
+            path: "clerk",
+            component: () => import("@/containers/Home/Setting/Clerk/index.vue")
+          },
+          {
+            path: "address",
+            component: () =>
+              import("@/containers/Home/Setting/Address/index.vue")
+          },
+          {
+            path: "member",
+            component: () =>
+              import("@/containers/Home/Setting/Member/index.vue")
+          },
+          {
+            path: "role",
+            component: () => import("@/containers/Home/Setting/Role/index.vue")
+          }
+        ]
       }
     ]
   },
