@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ num }}
-  </div>
+  <div :style="{ color: 'red', fontSize: '18px' }">{{ num }} 哈哈</div>
 </template>
 
 <script>
@@ -18,4 +16,5 @@ export default {
     }
   }
 };
+// 样式直接：style="{}"双引号里面直接放style对象即可
 </script>
